@@ -20,14 +20,14 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { CalendarIcon } from "lucide-react";
-import { SubmitButton } from "./SubmitButtons";
+import { SubmitButtons } from "./SubmitButtons";
 import { useActionState, useState } from "react";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { invoiceSchema } from "../utils/zodSchemas";
-import { createInvoice, editInvoice } from "../actions";
-import { formatCurrency } from "../utils/formatCurrency";
+import { invoiceSchema } from "@/app/utils/zodSchemas";
+import { formatCurrency } from "@/app/utils/formatCurrency";
 import { Prisma } from "@prisma/client";
+import { editInvoice } from "@/app/actions";
 
 interface iAppProps {
   data: Prisma.InvoiceGetPayload<{}>;
@@ -340,7 +340,7 @@ export function EditInvoice({ data }: iAppProps) {
 
           <div className="flex items-center justify-end mt-6">
             <div>
-              <SubmitButton text="Update Invoice" />
+              <SubmitButtons text="Update Invoice" />
             </div>
           </div>
         </form>
